@@ -90,10 +90,12 @@ for ($i = 0 ; $i -lt $total_reg ; $i++ ) {
     }
 }
 
-if ($OutputCsv) {
-    $mfa_report | Export-Csv -Path $OutputCsv -NoTypeInformation -Encoding UTF8 -Append
-    "Output saved to @ $($OutputCsv)." | Out-Default
-}
-else {
-    $mfa_report
+if ($mfa_report) {
+    if ($OutputCsv) {
+        $mfa_report | Export-Csv -Path $OutputCsv -NoTypeInformation -Encoding UTF8 -Append
+        "Output saved to @ $($OutputCsv)." | Out-Default
+    }
+    else {
+        $mfa_report
+    }
 }
