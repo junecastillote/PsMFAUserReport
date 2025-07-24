@@ -83,15 +83,15 @@ Retrieves MFA registration details for **all users** in the tenant.
 
 ## 📄 Output Fields
 
-| Field Name           | Description                                          |
-| -------------------- | ---------------------------------------------------- |
-| DisplayName          | Full display name of the user                        |
-| UserPrincipalName    | The user's login/UPN                                 |
-| Administator         | Indicates if the user is an admin                    |
-| MFACapable           | True if user can register for MFA                    |
-| MFARegistered        | True if user has completed MFA registration          |
-| MFADefaultMethod     | The default MFA method set (e.g., Authenticator app) |
-| MFAMethodsRegistered | Comma-separated list of all registered MFA methods   |
+| Field Name           | Description                                                           |
+| -------------------- | --------------------------------------------------------------------- |
+| DisplayName          | Full display name of the user                                         |
+| UserPrincipalName    | The user's login/UPN                                                  |
+| Administator         | Indicates if the user is an admin                                     |
+| MFACapable           | True if user has MFA enabled and can perform MFA challenges / sign in |
+| MFARegistered        | True if user has completed MFA registration                           |
+| MFADefaultMethod     | The default MFA method set (e.g., Authenticator app)                  |
+| MFAMethodsRegistered | Comma-separated list of all registered MFA methods                    |
 
 ---
 
@@ -106,8 +106,7 @@ Retrieves MFA registration details for **all users** in the tenant.
 
 ## 🧱 Sample Output (Console)
 
-```
-
+```Text
 DisplayName         : Jane Doe
 UserPrincipalName   : jane.doe@contoso.com
 Administator        : False
