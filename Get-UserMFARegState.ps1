@@ -13,9 +13,9 @@
 
 .TAGS
 
-.LICENSEURI
+.LICENSEURI https://github.com/junecastillote/PsMFAUserReport/blob/main/LICENSE
 
-.PROJECTURI
+.PROJECTURI https://github.com/junecastillote/PsMFAUserReport
 
 .ICONURI
 
