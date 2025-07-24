@@ -1,3 +1,80 @@
+
+<#PSScriptInfo
+
+.VERSION 0.1
+
+.GUID 7552fb98-672a-4122-b5a6-211a996d46a1
+
+.AUTHOR June Castillote
+
+.COMPANYNAME
+
+.COPYRIGHT
+
+.TAGS
+
+.LICENSEURI
+
+.PROJECTURI
+
+.ICONURI
+
+.EXTERNALMODULEDEPENDENCIES
+
+.REQUIREDSCRIPTS
+
+.EXTERNALSCRIPTDEPENDENCIES
+
+.RELEASENOTES
+
+
+.PRIVATEDATA
+
+#>
+
+<#
+.SYNOPSIS
+Retrieves Multi-Factor Authentication (MFA) registration details of Microsoft 365 users using Microsoft Graph.
+
+.DESCRIPTION
+This script uses Microsoft Graph to retrieve the MFA registration status of either a single user (specified by UPN)
+or all users in the tenant. The output includes display name, UPN, admin status, MFA capability, registration status,
+default MFA method, and a list of registered methods. Optionally, results can be exported to a CSV file.
+
+.PARAMETER UserPrincipalName
+Specifies the user principal name (UPN) of a single user whose MFA registration details should be retrieved.
+
+.PARAMETER AllUsers
+Switch to retrieve MFA registration details for all users in the tenant.
+This parameter is mutually exclusive with -UserPrincipalName.
+
+.PARAMETER OutputCsv
+Specifies the path to a CSV file to which the results should be exported. If not provided, the results will be displayed in the console.
+
+.EXAMPLE
+.\Get-UserMFARegState.ps1 -UserPrincipalName jane.doe@contoso.com
+Retrieves the MFA registration status for a single user.
+
+.EXAMPLE
+.\Get-UserMFARegState.ps1 -AllUsers
+Retrieves the MFA registration status for all users in the tenant.
+
+.EXAMPLE
+.\Get-UserMFARegState.ps1 -AllUsers -OutputCsv "C:\Reports\MFA_Report.csv"
+Retrieves the MFA registration status for all users and saves the result to a CSV file.
+
+.NOTES
+Requires Microsoft Graph PowerShell SDK and appropriate permissions:
+- Reports.Read.All
+- User.Read.All
+
+Connect using:
+Connect-MgGraph -Scopes "Reports.Read.All", "User.Read.All"
+
+The script uses the beta endpoint of Microsoft Graph API.
+#>
+
+
 [CmdletBinding(DefaultParameterSetName = 'UserPrincipalName')]
 param (
     [Parameter(Mandatory, ParameterSetName = 'UserPrincipalName')]
